@@ -1,42 +1,42 @@
-#include <stdio.h>
-#include<conio.h>
-int main(void) 
+#include<stdio.h>
+
+void main()
 {
-	int m,n,l;
-	scanf("%d %d",&m,&n);
-	l=m+n;
-	int a[l],i,j,k=0,res[l],count=0,temp;
-	for(i=0;i<l;i++)
-	{
-		scanf("%d ",&a[i]);
-	}
-	for(i=0;i<l;i++)
-	{
-		for(j=i+1;j<l;j++)
-		{
-			if(a[i]==a[j])
-			{
-				res[k]=a[i];
-				k++;
-				count=count+1;
-			}
-		}
-	}
-	for(k=0;k<count;k++)
-	{
-	  for(j=k+1;j<count;j++)
-	  {
-	  	if(res[k]>res[j])
-	  	{
-	  		temp=res[k];
-	  		res[k]=res[j];
-	  		res[j]=temp;
-	  	}
-	  }
-	}
-	for(i=0;i<count;i++)
-	{
-		printf("%d ",res[i]);
-	}
-	return 0;
+int a[100],b[100],c[100],i,j,k=0,l,m,n;
+clrscr();
+scanf("%d %d",&n,&m);
+for(i=0;i<n;i++)
+{
+scanf("%d",&a[i]);
+}
+for(j=0;j<m;j++)
+{
+scanf("%d",&b[j]);
+}
+for(i=0;i<n;i++)
+{
+for(j=0;j<m;j++)
+{
+if(a[i]==b[j])
+{
+c[k]=a[i];
+b[j]='&';
+a[i]='*'; 
+k++;
+}
+}
+}
+for(l=0;l<k;l++)
+{
+if(c[k]>c[k+1])
+{
+c[k]=c[k+1];
+c[k+1]=c[k];
+}
+}
+for(l=0;l<k;l++)
+{
+printf("%d ",c[l]);
+}
+getch();
 }
